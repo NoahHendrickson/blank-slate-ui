@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "blank-slate",
+  "homepage": "https://github.com/NoahHendrickson/blank-slate-ui",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Blank Slate Theme",
+      "cssVars": {
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-shadow": "var(--brand-shadow)"
+        },
+        "light": {
+          "primary": "#1e5fc8",
+          "primary-foreground": "#ffffff",
+          "secondary": "#e9f1ff",
+          "secondary-foreground": "#0f2444",
+          "accent": "#e9f1ff",
+          "accent-foreground": "#0f2444",
+          "ring": "#438eff",
+          "brand": "#438eff",
+          "brand-shadow": "#75bcff",
+          "neutral-line": "#a1a1aa",
+          "neutral-shadow": "#c9c9ce",
+          "radius": "0.5rem"
+        },
+        "dark": {
+          "primary": "#6ea8ff",
+          "primary-foreground": "#08122b",
+          "secondary": "#14233d",
+          "secondary-foreground": "#e8f0ff",
+          "accent": "#17294a",
+          "accent-foreground": "#e8f0ff",
+          "ring": "#75bcff",
+          "brand": "#75bcff",
+          "brand-shadow": "#2f6fd6",
+          "neutral-line": "#6b6b73",
+          "neutral-shadow": "#3f3f46",
+          "border": "oklch(0.32 0 0)",
+          "input": "oklch(0.37 0 0)"
+        }
+      }
+    },
+    { "name": "button",   "type": "registry:ui", "title": "Button",   "dependencies": ["@base-ui/react", "class-variance-authority"], "files": [{ "path": "src/components/ui/button.tsx",   "type": "registry:ui" }] },
+    { "name": "badge",    "type": "registry:ui", "title": "Badge",    "dependencies": ["@base-ui/react", "class-variance-authority"], "files": [{ "path": "src/components/ui/badge.tsx",    "type": "registry:ui" }] },
+    { "name": "card",     "type": "registry:ui", "title": "Card",     "files": [{ "path": "src/components/ui/card.tsx",     "type": "registry:ui" }] },
+    { "name": "input",    "type": "registry:ui", "title": "Input",    "dependencies": ["@base-ui/react"], "files": [{ "path": "src/components/ui/input.tsx",    "type": "registry:ui" }] },
+    { "name": "label",    "type": "registry:ui", "title": "Label",    "files": [{ "path": "src/components/ui/label.tsx",    "type": "registry:ui" }] },
+    { "name": "select",   "type": "registry:ui", "title": "Select",   "dependencies": ["@base-ui/react", "lucide-react"], "files": [{ "path": "src/components/ui/select.tsx",   "type": "registry:ui" }] },
+    { "name": "tabs",     "type": "registry:ui", "title": "Tabs",     "dependencies": ["@base-ui/react"], "files": [{ "path": "src/components/ui/tabs.tsx",     "type": "registry:ui" }] },
+    { "name": "slider",   "type": "registry:ui", "title": "Slider",   "dependencies": ["@base-ui/react"], "files": [{ "path": "src/components/ui/slider.tsx",   "type": "registry:ui" }] },
+    { "name": "toggle",   "type": "registry:ui", "title": "Toggle",   "dependencies": ["@base-ui/react", "class-variance-authority"], "files": [{ "path": "src/components/ui/toggle.tsx",   "type": "registry:ui" }] },
+    { "name": "accordion","type": "registry:ui", "title": "Accordion","dependencies": ["@base-ui/react", "lucide-react"], "files": [{ "path": "src/components/ui/accordion.tsx","type": "registry:ui" }] },
+    { "name": "checkbox", "type": "registry:ui", "title": "Checkbox", "dependencies": ["@base-ui/react", "lucide-react"], "files": [{ "path": "src/components/ui/checkbox.tsx", "type": "registry:ui" }] },
+    { "name": "dialog",   "type": "registry:ui", "title": "Dialog",   "dependencies": ["@base-ui/react", "lucide-react"], "files": [{ "path": "src/components/ui/dialog.tsx",   "type": "registry:ui" }] },
+    { "name": "popover",  "type": "registry:ui", "title": "Popover",  "dependencies": ["@base-ui/react"], "files": [{ "path": "src/components/ui/popover.tsx",  "type": "registry:ui" }] },
+    { "name": "switch",   "type": "registry:ui", "title": "Switch",   "dependencies": ["@base-ui/react"], "files": [{ "path": "src/components/ui/switch.tsx",   "type": "registry:ui" }] },
+    { "name": "tooltip",  "type": "registry:ui", "title": "Tooltip",  "dependencies": ["@base-ui/react"], "files": [{ "path": "src/components/ui/tooltip.tsx",  "type": "registry:ui" }] }
+  ]
+}
