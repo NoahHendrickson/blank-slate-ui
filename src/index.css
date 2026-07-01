@@ -67,8 +67,8 @@
     --accent: #e9f1ff;             /* hover / highlight surface */
     --accent-foreground: #0f2444;
     --destructive: oklch(0.577 0.245 27.325);
-    --border: #c6ddff;             /* soft blue outline */
-    --input: #c6ddff;
+    --border: oklch(0.922 0 0);    /* light gray outline */
+    --input: oklch(0.922 0 0);
     --ring: #438eff;               /* bright brand blue focus ring */
     --brand: #438eff;              /* bright brand blue — outlines & the 3D button border */
     --brand-shadow: #75bcff;       /* the hard blue drop-shadow */
@@ -106,8 +106,8 @@
     --accent: #17294a;
     --accent-foreground: #e8f0ff;
     --destructive: oklch(0.704 0.191 22.216);
-    --border: #2c3f60;
-    --input: #33405e;
+    --border: oklch(0.32 0 0);     /* neutral gray outline */
+    --input: oklch(0.37 0 0);
     --ring: #75bcff;
     --brand: #75bcff;
     --brand-shadow: #2f6fd6;
