@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { CheckIcon } from "lucide-react"
 
 const checkboxVariants = cva(
-  "peer group/checkbox relative flex shrink-0 items-center justify-center border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-brand data-checked:bg-background data-checked:text-primary dark:data-checked:bg-background data-checked:before:absolute data-checked:before:-inset-x-px data-checked:before:-top-px data-checked:before:border data-checked:before:border-brand data-checked:before:bg-[var(--brand-shadow)] data-checked:before:content-['']",
+  "peer group/checkbox relative flex shrink-0 items-center justify-center border border-input outline-none transition-[color,background-color,border-color,transform] duration-150 ease-out active:scale-[0.92] active:duration-100 motion-reduce:transition-none motion-reduce:active:scale-100 group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-brand data-checked:bg-background data-checked:text-primary dark:data-checked:bg-background data-checked:before:absolute data-checked:before:-inset-x-px data-checked:before:-top-px data-checked:before:border data-checked:before:border-brand data-checked:before:bg-[var(--brand-shadow)] data-checked:before:transition-[bottom] data-checked:before:duration-150 data-checked:before:ease-out data-checked:before:content-['']",
   {
     variants: {
       size: {
@@ -23,7 +23,7 @@ const checkboxVariants = cva(
 )
 
 const checkboxIndicatorVariants = cva(
-  "absolute -inset-px grid place-content-center border border-brand bg-background text-current transition-none group-focus-visible/checkbox:border-ring group-aria-invalid/checkbox:border-primary",
+  "absolute -inset-px grid origin-center place-content-center border border-brand bg-background text-current transition-[opacity,transform] duration-150 ease-out data-starting-style:scale-90 data-starting-style:opacity-0 data-ending-style:scale-90 data-ending-style:opacity-0 motion-reduce:transition-none motion-reduce:data-starting-style:scale-100 motion-reduce:data-starting-style:opacity-100 motion-reduce:data-ending-style:scale-100 motion-reduce:data-ending-style:opacity-100 group-focus-visible/checkbox:border-ring group-aria-invalid/checkbox:border-primary",
   {
     variants: {
       size: {
