@@ -68,6 +68,13 @@ export const ChooseOption: Story = {
         await expect(trigger).toHaveTextContent("Blueberry")
       })
       await expect(args.onValueChange).toHaveBeenCalled()
+      // Wait for the listbox to fully close so the a11y scan runs on a settled
+      // DOM (an open/closing Base UI listbox transiently aria-hides the trigger).
+      await waitFor(async () => {
+        await expect(
+          body.queryByRole("option", { name: "Blueberry" })
+        ).not.toBeInTheDocument()
+      })
     })
   },
 }
@@ -87,6 +94,15 @@ export const OpenWithKeyboard: Story = {
       await userEvent.keyboard("{Enter}")
       await waitFor(async () => {
         await expect(body.getByRole("option", { name: "Apple" })).toBeVisible()
+      })
+    })
+
+    await step("Close the listbox before the a11y scan", async () => {
+      await userEvent.keyboard("{Escape}")
+      await waitFor(async () => {
+        await expect(
+          body.queryByRole("option", { name: "Apple" })
+        ).not.toBeInTheDocument()
       })
     })
   },
