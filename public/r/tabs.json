@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/tabs.tsx",
+      "content": "\"use client\"\n\nimport { Tabs as TabsPrimitive } from \"@base-ui/react/tabs\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Tabs({\n  className,\n  orientation = \"horizontal\",\n  ...props\n}: TabsPrimitive.Root.Props) {\n  return (\n    <TabsPrimitive.Root\n      data-slot=\"tabs\"\n      data-orientation={orientation}\n      className={cn(\"group/tabs flex gap-3 data-horizontal:flex-col\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction TabsList({\n  className,\n  children,\n  ...props\n}: TabsPrimitive.List.Props) {\n  return (\n    <TabsPrimitive.List\n      data-slot=\"tabs-list\"\n      // A light-gray border around the row. Top and sides flush; 3px of bottom\n      // room so the selected indicator's hard shadow sits inside the border.\n      className={cn(\n        \"relative inline-flex w-fit items-center rounded-xl border border-border pb-[3px] text-muted-foreground group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col group-data-vertical/tabs:items-stretch\",\n        className\n      )}\n      {...props}\n    >\n      {/* The selected \"button\" — a single element that slides/resizes between\n          tabs. Base UI keeps --active-tab-* in sync with the active tab. */}\n      <TabsPrimitive.Indicator\n        data-slot=\"tabs-indicator\"\n        className=\"absolute top-[var(--active-tab-top)] left-[var(--active-tab-left)] z-0 h-[var(--active-tab-height)] w-[var(--active-tab-width)] rounded-lg border-2 border-brand bg-background shadow-[0_3px_0_0_var(--brand-shadow)] transition-[top,left,width,height] duration-200 ease-out\"\n      />\n      {children}\n    </TabsPrimitive.List>\n  )\n}\n\nfunction TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {\n  return (\n    <TabsPrimitive.Tab\n      data-slot=\"tabs-trigger\"\n      // Just the label, sitting above the sliding indicator (z-10). Selected\n      // text turns to foreground; the blue button visual comes from the indicator.\n      className={cn(\n        \"relative z-10 inline-flex items-center justify-center gap-1.5 rounded-lg border-2 border-transparent px-3 py-1 text-sm font-semibold whitespace-nowrap text-foreground/60 transition-colors outline-none select-none\",\n        \"hover:text-foreground\",\n        \"focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50\",\n        \"disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50\",\n        \"group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start\",\n        \"data-active:text-foreground\",\n        \"[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {\n  return (\n    <TabsPrimitive.Panel\n      data-slot=\"tabs-content\"\n      className={cn(\"flex-1 text-sm outline-none\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Tabs, TabsList, TabsTrigger, TabsContent }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
