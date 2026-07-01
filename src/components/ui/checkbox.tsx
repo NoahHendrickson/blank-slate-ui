@@ -1,11 +1,47 @@
 "use client"
 
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox"
+import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { CheckIcon } from "lucide-react"
 
-function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
+const checkboxVariants = cva(
+  "peer group/checkbox relative flex shrink-0 items-center justify-center border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-brand data-checked:bg-background data-checked:text-primary dark:data-checked:bg-background data-checked:before:absolute data-checked:before:-inset-x-px data-checked:before:-top-px data-checked:before:border data-checked:before:border-brand data-checked:before:bg-[var(--brand-shadow)] data-checked:before:content-['']",
+  {
+    variants: {
+      size: {
+        default:
+          "size-4 rounded-[4px] data-checked:before:-bottom-[3px] data-checked:before:rounded-[4px]",
+        lg: "size-5 rounded-[5px] data-checked:before:-bottom-[4px] data-checked:before:rounded-[5px]",
+      },
+    },
+    defaultVariants: {
+      size: "default",
+    },
+  }
+)
+
+const checkboxIndicatorVariants = cva(
+  "absolute -inset-px grid place-content-center border border-brand bg-background text-current transition-none group-focus-visible/checkbox:border-ring group-aria-invalid/checkbox:border-primary",
+  {
+    variants: {
+      size: {
+        default: "rounded-[4px] [&>svg]:size-3.5",
+        lg: "rounded-[5px] [&>svg]:size-4",
+      },
+    },
+    defaultVariants: {
+      size: "default",
+    },
+  }
+)
+
+function Checkbox({
+  className,
+  size = "default",
+  ...props
+}: CheckboxPrimitive.Root.Props & VariantProps<typeof checkboxVariants>) {
   return (
     // Checked = the dolores-ds 3D button treatment: a light bg-background face
     // with a brand-blue border on a brand-shadow "lip". Same recipe as Button's
@@ -23,21 +59,18 @@ function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
     // stays reserved for the expanded hit area.
     <CheckboxPrimitive.Root
       data-slot="checkbox"
-      className={cn(
-        "peer group/checkbox relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-brand data-checked:bg-background data-checked:text-primary dark:data-checked:bg-background data-checked:before:absolute data-checked:before:-inset-x-px data-checked:before:-top-px data-checked:before:-bottom-[3px] data-checked:before:rounded-[4px] data-checked:before:border data-checked:before:border-brand data-checked:before:bg-[var(--brand-shadow)] data-checked:before:content-['']",
-        className
-      )}
+      data-size={size}
+      className={cn(checkboxVariants({ size, className }))}
       {...props}
     >
       <CheckboxPrimitive.Indicator
         data-slot="checkbox-indicator"
-        className="absolute -inset-px grid place-content-center rounded-[4px] border border-brand bg-background text-current transition-none group-focus-visible/checkbox:border-ring group-aria-invalid/checkbox:border-primary [&>svg]:size-3.5"
+        className={checkboxIndicatorVariants({ size })}
       >
-        <CheckIcon
-        />
+        <CheckIcon />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   )
 }
 
-export { Checkbox }
+export { Checkbox, checkboxVariants }

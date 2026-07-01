@@ -17,6 +17,12 @@ const meta = {
   tags: ["autodocs"],
   parameters: { layout: "centered" },
   args: { onCheckedChange: fn() },
+  argTypes: {
+    size: {
+      control: "select",
+      options: ["default", "lg"],
+    },
+  },
 } satisfies Meta<typeof Checkbox>
 
 export default meta
@@ -37,6 +43,25 @@ export const Checked: Story = {
     <div className="flex items-center gap-2">
       <Checkbox id="subscribe" {...args} />
       <Label htmlFor="subscribe">Subscribe to the newsletter</Label>
+    </div>
+  ),
+}
+
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex flex-col gap-4">
+      {(["default", "lg"] as const).map((size) => (
+        <div key={size} className="flex items-center gap-4">
+          <span className="w-16 text-sm text-muted-foreground">{size}</span>
+          <Checkbox aria-label={`${size} unchecked`} size={size} {...args} />
+          <Checkbox
+            aria-label={`${size} checked`}
+            size={size}
+            defaultChecked
+            {...args}
+          />
+        </div>
+      ))}
     </div>
   ),
 }
