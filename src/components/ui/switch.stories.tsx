@@ -24,6 +24,25 @@ export const Default: Story = {
   ),
 }
 
+/**
+ * The thumb echoes the button's outline: a bordered knob that recolors with
+ * state — neutral-gray when off, brand-blue when on. Shown across both sizes and
+ * states so the knob can be inspected side by side.
+ */
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex flex-col gap-4">
+      {(["default", "sm"] as const).map((size) => (
+        <div key={size} className="flex items-center gap-4">
+          <span className="w-16 text-sm text-muted-foreground">{size}</span>
+          <Switch aria-label={`${size} off`} size={size} {...args} />
+          <Switch aria-label={`${size} on`} size={size} defaultChecked {...args} />
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const Disabled: Story = {
   args: { disabled: true, defaultChecked: true },
   render: (args) => (
