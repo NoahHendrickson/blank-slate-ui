@@ -32,6 +32,39 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+/**
+ * The dolores-ds small button, matched 1:1 to the Figma "Button" node (104:216):
+ * a 24px-tall white face with a 1px #438eff border, a 4px #75bcff shadow lip that
+ * is itself #438eff-bordered (the "double border"), and a 12px semibold label.
+ */
+export const Small: Story = {
+  args: { size: "xs", children: "Add an item" },
+}
+
+/**
+ * The bordered "double border" 3D treatment now scales across every size — the
+ * 1px border, the bordered `#75bcff` lip, and the 6px corner radius are shared;
+ * only the height, padding, and text size change per size.
+ */
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-end gap-3">
+      <Button {...args} size="xs">
+        Extra small
+      </Button>
+      <Button {...args} size="sm">
+        Small
+      </Button>
+      <Button {...args} size="default">
+        Default
+      </Button>
+      <Button {...args} size="lg">
+        Large
+      </Button>
+    </div>
+  ),
+}
+
 export const Variants: Story = {
   parameters: {
     a11y: {
