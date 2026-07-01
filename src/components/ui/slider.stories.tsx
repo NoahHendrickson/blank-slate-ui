@@ -11,5 +11,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => <Slider defaultValue={[50]} className="w-64" />,
+  render: () => (
+    <Slider aria-label="Volume" defaultValue={[50]} className="w-64" />
+  ),
 }
